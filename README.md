@@ -15,6 +15,8 @@ In current scenario, most of the social media platforms can be seen with the pro
 # Installation
 * Clone the repository.
     `git clone https://github.com/TeamBootUp/boot-up`
+* Go to the repository.
+	`cd boot-up`
 * Create a virtual environment.
 	`virtualenv benv`
 * Activate virtual environment.
