@@ -35,3 +35,9 @@ def team(request):
 
 def docs(request):
     return render(request, 'user/docs.html')
+
+def hwdi(request):
+    return render(request, 'user/hwdi.html')
+
+def faq(request):
+    return render(request, 'user/faq.html')

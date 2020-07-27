@@ -14,4 +14,6 @@ urlpatterns = [
 
     path('team/', user_views.team, name='team'),
     path('docs/', user_views.docs, name='docs'),
+    path('hwdi/', user_views.hwdi, name='hwdi'),
+    path('faq/', user_views.faq, name='faq'),
 ]
