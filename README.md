@@ -21,6 +21,12 @@ In current scenario, most of the social media platforms can be seen with the pro
 	`benv\Scripts\activate`
 * Install packages.
 	`pip install -r requirements.txt`
+* Go to app directory.
+    `cd app`
+* For Password Reset Functionality, add environment variables:
+	`EMAIL_USER: email_address`
+	`EMAIL_PASS: email_password`
+	Avoid if not using password reset!!
 * Migrate DB.
 	`python manage.py migrate`
 * Run server.
