@@ -13,3 +13,17 @@ In current scenario, most of the social media platforms can be seen with the pro
 * Pratik Temkar
 
 # Installation
+* Clone the repository.
+    `git clone https://github.com/TeamBootUp/boot-up`
+* Create a virtual environment.
+	`virtualenv benv`
+* Activate virtual environment.
+	`benv\Scripts\activate`
+* Install packages.
+	`pip install -r requirements.txt`
+* Migrate DB.
+	`python manage.py migrate`
+* Run server.
+	`python manage.py runserver`
+* Visit site at:
+	`127.0.0.1:8000`
