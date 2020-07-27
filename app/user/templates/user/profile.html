@@ -1,0 +1,22 @@
+{% extends "user/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+BootUp - Profile
+{% endblock %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <div class="row">
+        <div class="col">
+            <form method="POST" >
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Update Profile" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-danger" href="{% url 'password_reset' %}">Reset Password</a>
+        </div>
+    </div>
+{% endblock %}

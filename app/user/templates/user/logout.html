@@ -1,0 +1,10 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+BootUp - Logged Out
+{% endblock %}
+
+{% block content %}
+<h1>Logged Out</h1>
+You have been logged out from the system. <a href="{% url 'login' %}">Login again</a>
+{% endblock %}

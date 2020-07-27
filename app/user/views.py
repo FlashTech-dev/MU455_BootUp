@@ -23,12 +23,12 @@ def profile(request):
 		form = UserUpdateForm(request.POST, instance=request.user)
 		if form.is_valid():
 			form.save()
-			return redirect('index')
+			return redirect('home')
 
 	else:
 		form = UserUpdateForm(instance=request.user)
 
-	return render(request, 'user_auth/profile.html', {'form': form, 'title': 'Profile'})
+	return render(request, 'user/profile.html', {'form': form})
 
 def team(request):
     return render(request, 'user/team.html')
@@ -41,3 +41,7 @@ def hwdi(request):
 
 def faq(request):
     return render(request, 'user/faq.html')
+
+@login_required
+def home(request):
+    return render(request, 'user/home.html')
