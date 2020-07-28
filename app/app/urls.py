@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
 
 from django.contrib.auth import views as auth_views
 from user import views as user_views
@@ -27,4 +28,7 @@ urlpatterns = [
     # @login_required
     path('', user_views.home, name='home'),
     path('profile/', user_views.profile, name='profile'),
+
+    # API
 ]
+

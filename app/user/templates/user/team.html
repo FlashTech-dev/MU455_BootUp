@@ -1,19 +1,97 @@
 {% extends 'user/base.html' %}
+{% load static %}
 
 {% block title %}
 BootUp - Team
 {% endblock %}
 
 {% block content %}
-<h1>Team</h1>
-<div class="mt-4">
-    <ul>
-        <li>Karan Wagh</li>
-        <li>Dipak Patil</li>
-        <li>Tejashree Salvi</li>
-        <li>Kaif Tamboli</li>
-        <li>Sakshi Chaudhari</li>
-        <li>Pratik Temkar</li>
-    </ul>
+<div class="row">
+    <div class="col-4">
+        <h1>Team</h1>
+        <ul>
+            <li>
+                <a style="text-decoration: none; color: black;" data-toggle="collapse" href="#karan" role="button" aria-expanded="false" aria-controls="karan">
+                Karan Wagh
+                </a>
+                <div class="collapse" id="karan">
+                <div class="card card-body">
+                    <p class="lead">I am good.</p>
+                    <a href="#" class="btn btn-outline-danger">Instagram</a>
+                    <a href="#" class="btn btn-outline-primary mt-2">Twitter</a>
+                    <a href="#" class="btn btn-outline-secondary mt-2">GitHub</a>
+                </div>
+                </div>
+            </li>
+            <li>
+                <a style="text-decoration: none; color: black;" data-toggle="collapse" href="#dipak" role="button" aria-expanded="false" aria-controls="dipak">
+                Dipak Patil
+                </a>
+                <div class="collapse" id="dipak">
+                <div class="card card-body">
+                    <p class="lead">I am good.</p>
+                    <a href="#" class="btn btn-outline-danger">Instagram</a>
+                    <a href="#" class="btn btn-outline-primary mt-2">Twitter</a>
+                    <a href="#" class="btn btn-outline-secondary mt-2">GitHub</a>
+                </div>
+                </div>
+            </li>
+            <li>
+                <a style="text-decoration: none; color: black;" data-toggle="collapse" href="#tejas" role="button" aria-expanded="false" aria-controls="tejas">
+                Tejashree Salvi
+                </a>
+                <div class="collapse" id="tejas">
+                <div class="card card-body">
+                    <p class="lead">I am good.</p>
+                    <a href="#" class="btn btn-outline-danger">Instagram</a>
+                    <a href="#" class="btn btn-outline-primary mt-2">Twitter</a>
+                    <a href="#" class="btn btn-outline-secondary mt-2">GitHub</a>
+                </div>
+                </div>
+            </li>
+            <li>
+                <a style="text-decoration: none; color: black;" data-toggle="collapse" href="#sakshi" role="button" aria-expanded="false" aria-controls="sakshi">
+                Sakshi Chaudhari
+                </a>
+                <div class="collapse" id="sakshi">
+                <div class="card card-body">
+                    <p class="lead">I am good.</p>
+                    <a href="#" class="btn btn-outline-danger">Instagram</a>
+                    <a href="#" class="btn btn-outline-primary mt-2">Twitter</a>
+                    <a href="#" class="btn btn-outline-secondary mt-2">GitHub</a>
+                </div>
+                </div>
+            </li>
+            <li>
+                <a style="text-decoration: none; color: black;" data-toggle="collapse" href="#kaif" role="button" aria-expanded="false" aria-controls="kaif">
+                Kaif Tamboli
+                </a>
+                <div class="collapse" id="kaif">
+                <div class="card card-body">
+                    <p class="lead">I am good.</p>
+                    <a href="#" class="btn btn-outline-danger">Instagram</a>
+                    <a href="#" class="btn btn-outline-primary mt-2">Twitter</a>
+                    <a href="#" class="btn btn-outline-secondary mt-2">GitHub</a>
+                </div>
+                </div>
+            </li>
+            <li>
+                <a style="text-decoration: none; color: black;" data-toggle="collapse" href="#pratik" role="button" aria-expanded="false" aria-controls="pratik">
+                Pratik Temkar
+                </a>
+                <div class="collapse" id="pratik">
+                <div class="card card-body">
+                    <p class="lead">Web Developer</p>
+                    <a href="https://www.instagram.com/pratikstemkar" class="btn btn-outline-danger">Instagram</a>
+                    <a href="https://www.twitter.com/pratikstemkar" class="btn btn-outline-primary mt-2">Twitter</a>
+                    <a href="https://www.github.com/pratikstemkar" class="btn btn-outline-secondary mt-2">GitHub</a>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <img src="{% static 'user/img/team.svg' %}" alt="team_img" style="width: 100%; height: auto;">
+    </div>
 </div>
 {% endblock %}
