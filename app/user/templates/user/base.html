@@ -50,6 +50,9 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 {% if user.is_authenticated %}
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if url_name == 'history' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'history' %}"><i class="fa fa-history" aria-hidden="true"></i> History</a>
+                    </li>
                     <li class="nav-item {% if url_name == 'profile' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user-md" aria-hidden="true"></i> Profile</a>
                     </li>

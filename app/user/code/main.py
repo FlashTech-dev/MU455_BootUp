@@ -48,6 +48,9 @@ def getSentimentResult(xx_text):
     print(result_arr)
     print(np.amax(result_arr))
 
+    return result_arr
+
+def getSentiment(result_arr):
     if np.argmax(result_arr)==0:
         result_sentiment = 'Negative'
     elif np.argmax(result_arr)==1:

@@ -28,6 +28,7 @@ urlpatterns = [
     # @login_required
     path('', user_views.home, name='home'),
     path('profile/', user_views.profile, name='profile'),
+    path('history/', user_views.history, name='history'),
 
     # API
 ]

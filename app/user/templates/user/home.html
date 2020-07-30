@@ -7,17 +7,60 @@ BootUp - Home
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <form method="POST" class="mt-4">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input type="submit" class="btn btn-primary" value="Calculate Sentiment"><br>
-        </form>
-        {% if result %}
-        {{result}}
-        {% endif %}
+<p class="lead text-center">“Sentiment without action is the ruin of the soul.”</p>
+<div class="text-center">
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-primary" value="Calculate Sentiment"><br>
+    </form>
+    {% if result %}
+
+    {% if result == 'Negative' %}
+    <div class="alert alert-danger" role="alert">
+        The sentiment of the statement is <b>{{result}}</b>.
     </div>
+    {% elif result == 'Neutral' %}
+    <div class="alert alert-primary" role="alert">
+        The sentiment of the statement is <b>{{result}}</b>.
+    </div>
+    {% elif result == 'Positive' %}
+    <div class="alert alert-success" role="alert">
+        The sentiment of the statement is <b>{{result}}</b>.
+    </div>
+    {% endif %}
+
+    <div class="mt-4" style="height: 500px; width: 100%; text-align: center;">
+        <canvas id="myChart" style="display: inline; padding: 20px;"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Negative', 'Neutral', 'Positive'],
+                    datasets: [{
+                        label: 'Sentiment Score',
+                        data: [{{negative_val}}, {{neutral_val}}, {{positive_val}}],
+                        backgroundColor: [
+                            'rgba(217, 83, 79, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(92, 184, 92, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(217, 83, 79, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(92, 184, 92, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                
+            });
+        </script>
+    </div>
+    {% endif %}
 </div>
+
 {% endblock %}
 

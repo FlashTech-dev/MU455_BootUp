@@ -1,0 +1,29 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+BootUp - History
+{% endblock %}
+
+{% block content %}
+<h1><i class="fa fa-history" aria-hidden="true"></i> Your History</h1>
+<div class="mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Text</th>
+                <th scope="col">Translated Text</th>
+                <th scope="col">Sentiment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{item.text}}</td>
+                <td>{{item.translated_text}}</td>
+                <td>{{item.sentiment}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
