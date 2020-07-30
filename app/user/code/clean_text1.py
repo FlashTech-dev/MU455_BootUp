@@ -10,9 +10,6 @@ nltk.download("wordnet")
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-
-
-
 lm = WordNetLemmatizer()
 stop = stopwords.words('english')
 

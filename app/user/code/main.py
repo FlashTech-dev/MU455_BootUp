@@ -14,6 +14,9 @@ from keras.preprocessing.sequence import pad_sequences
 import nltk
 import string
 
+nltk.download("wordnet")
+
+
 from nltk.corpus import stopwords
 
 stop = stopwords.words('english')
