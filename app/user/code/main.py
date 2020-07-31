@@ -29,7 +29,7 @@ lm = nltk.WordNetLemmatizer()
 script_dir = os.path.dirname(__file__)
 
 def getPickleResult(text):
-    rel_path = "tokenizer_final1.pickle"
+    rel_path = "tokenizer_final5.pickle"
     abs_path = os.path.join(script_dir, rel_path)
 
     # print(abs_path)
@@ -38,12 +38,12 @@ def getPickleResult(text):
         tokenizer = pickle.load(handle)
 
         xx = tokenizer.texts_to_sequences([text])
-        xx = pad_sequences(xx, maxlen=23)
+        xx = pad_sequences(xx, maxlen=224)
 
         return xx
 
 def getSentimentResult(xx_text):
-    rel_path = "sentiment_analysis.h5"
+    rel_path = "sentiment_analysis-final.h5"
     abs_path = os.path.join(script_dir, rel_path)
 
     new = load_model(abs_path)
