@@ -110,3 +110,5 @@ def get_sentiment(twt):
     # result=result[result.percentage ==NaN]
 
     return result
+
+# The sentiment is provided as soon as possible.
