@@ -48,3 +48,5 @@ In current scenario, most of the social media platforms can be seen with the pro
 	`virtualenv -p [the value copied above] python3.7`
 * Activate the virtual environment.
 	`python3.7\Scripts\activate`
+
+	
