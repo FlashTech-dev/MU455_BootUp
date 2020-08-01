@@ -2,3 +2,5 @@
 \penv
 \python3.7
 keys
+.vscode/settings.json
+.ipynb_checkpoints/test1_rnn_checkpoint.ipynb
