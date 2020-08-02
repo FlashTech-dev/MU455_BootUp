@@ -17,15 +17,15 @@ translator = Translator()
 #------------------------------------------------------------------------------------Emoji Analysis---------------------------------------------------------------------#
 #########################################################################################################################################################################
 
-def emojiRefinement(removePunctuation): 
+def emojiRefinement(removePunctuation):
     er = re.findall(r'[^\w\s+,]', removePunctuation)
     return er
-    
+
 def emojiToWordRefinement(er):
     etw = []
     for i in er: etw.append(emojiToWord(i).replace("_"," ").replace(":","").upper().strip())
     return etw
-    
+
 def emojiToWord(inputEmoji):
     inputEmojiCopy = inputEmoji
     for emot in UNICODE_EMO: inputEmoji = inputEmoji.replace(emot,(UNICODE_EMO[emot]))
@@ -55,9 +55,9 @@ def emoticonAnalyser(inputString):
     for i in range(len(replaceEmoticons)):
     	if(textEmoticons[i] != replaceEmoticons[i]):
     		wordEmoticon.append(replaceEmoticons[i].replace("_",' '))
-    		
+
     return wordEmoticon
-        
+
 #########################################################################################################################################################################
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 #########################################################################################################################################################################
@@ -69,7 +69,7 @@ def emoticonAnalyser(inputString):
 
 def textAnalyser(removePunctuation):
     emojiAverageSentimentScore = emojiAnalyser(removePunctuation)
-    removeEmoji = removeEmojis(removePunctuation)#Removes Emojis from sentence    
+    removeEmoji = removeEmojis(removePunctuation)#Removes Emojis from sentence
     print('Reduced Emojis is : ',removeEmoji)
     removeRepetitiveCharacters = removeRepetition(removeEmoji)
     print('The reduced repetition is : ',removeRepetitiveCharacters)
@@ -77,14 +77,14 @@ def textAnalyser(removePunctuation):
     removeRepetitiveCharacters = removeRepetitiveCharacters +" "
     refinedEnglishStatement = (GoogleTranslate(langCheck,confidenceCheck,removeRepetitiveCharacters))
     print('The Refined statement is : ',refinedEnglishStatement )
-    return refinedEnglishStatement 
+    return refinedEnglishStatement
 #       langCheck , confidenceCheck = checkLanguage(removeRepetitiveCharacters)
         #clubingSentences = languageRefinement(removeRepetitiveCharacters)
         #
 
 #----------------------------------------Reducing the repetition to 2-------------
-                
-             
+
+
 def removeRepetition(s):
     return (re.sub( re.compile(r"([A-Za-z])\1{1,}", re.IGNORECASE),rpt_repl, s))
 
@@ -92,7 +92,7 @@ def rpt_repl(match):
   return match.group(1)+match.group(1)
 
 def checkLanguage(removeRepetitiveCharacters):
-    return str(getattr(translator.detect(removeRepetitiveCharacters),'lang')), float(translator.detect(removeRepetitiveCharacters).confidence) 
+    return str(getattr(translator.detect(removeRepetitiveCharacters),'lang')), float(translator.detect(removeRepetitiveCharacters).confidence)
 
 def GoogleTranslate(langCheck,confidenceCheck,removeRepetitiveCharacters):
     statementTranslation = ''
@@ -111,7 +111,7 @@ def GoogleTranslate(langCheck,confidenceCheck,removeRepetitiveCharacters):
     except:
     		statementTranslation = refineTranslation(removeRepetitiveCharacters)
     		print('Enhanced Refined translation : ',statementTranslation)
-    		
+
     return str(statementTranslation)
 
 
@@ -145,7 +145,7 @@ def removePunctuationMarks(inputString):
 def removeEmojis(removePunctuation):
     temp = (re.findall(r'[^ा ि ी ु ू े ै ो ौ ं ः\w\s+,]', removePunctuation))#Removes Emojis and stores in a temporary variable
     for i in temp:
-        removePunctuation = re.sub(i,'',removePunctuation)#Removes the Emojis using temporary variable   
+        removePunctuation = re.sub(i,'',removePunctuation)#Removes the Emojis using temporary variable
     removePunctuation = re.sub(r'\s+',' ',removePunctuation)#Removes multiple spaces to single space
     return removePunctuation
 
@@ -160,7 +160,7 @@ def removeEmojis(removePunctuation):
 #########################################################################################################################################################################
 
 def translate_text(inputString):
-    removePunctuation = removePunctuationMarks(inputString).lower()#Removes website, email-id, punctuations, expressions, underscore, Dollars, and, or,replacing multiple spaces by one, and converts into lower case 
+    removePunctuation = removePunctuationMarks(inputString).lower()#Removes website, email-id, punctuations, expressions, underscore, Dollars, and, or,replacing multiple spaces by one, and converts into lower case
     print('Reduced punctuatons is : ',removePunctuation)
     emojiToWordList = emojiAnalyser(removePunctuation)
     emoticonAverageSentimentScore = emoticonAnalyser(inputString)
@@ -171,10 +171,10 @@ def translate_text(inputString):
     		refinedStatement = refinedStatement + str(i) + ' '
     if emoticonAverageSentimentScore != []:
     	for i in emoticonAverageSentimentScore:
-    		refinedStatement = refinedStatement + str(i).upper() + ' '		
-    refinedStatement = refinedStatement.strip()		 		
+    		refinedStatement = refinedStatement + str(i).upper() + ' '
+    refinedStatement = refinedStatement.strip()
     return refinedStatement
-        
+
 
 
 #########################################################################################################################################################################
