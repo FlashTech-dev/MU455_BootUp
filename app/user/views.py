@@ -76,27 +76,27 @@ def home(request):
 
 
             # 2nd Model
-            punc_text = punctuation(translated_text)
-            pic_text = get_pickle_result(punc_text)
-            result2 = get_sentiment(pic_text)
+            # punc_text = punctuation(translated_text)
+            # pic_text = get_pickle_result(punc_text)
+            # result2 = get_sentiment(pic_text)
 
-            print(result2)
+            # print(result2)
 
-            empty_val = result2.loc[0, "percentage"]
-            sadness_val = result2.loc[1, "percentage"]
-            enthusiasm_val = result2.loc[2, "percentage"]
-            neutral_val1 = result2.loc[3, "percentage"]
-            worry_val = result2.loc[4, "percentage"]
-            surprise_val = result2.loc[5, "percentage"]
-            love_val = result2.loc[6, "percentage"]
-            fun_val = result2.loc[7, "percentage"]
-            hate_val = result2.loc[8, "percentage"]
-            happiness_val = result2.loc[9, "percentage"]
-            boredom_val = result2.loc[10, "percentage"]
-            relief_val = result2.loc[11, "percentage"]
-            anger_val = result2.loc[12, "percentage"]
+            # empty_val = result2.loc[0, "percentage"]
+            # sadness_val = result2.loc[1, "percentage"]
+            # enthusiasm_val = result2.loc[2, "percentage"]
+            # neutral_val1 = result2.loc[3, "percentage"]
+            # worry_val = result2.loc[4, "percentage"]
+            # surprise_val = result2.loc[5, "percentage"]
+            # love_val = result2.loc[6, "percentage"]
+            # fun_val = result2.loc[7, "percentage"]
+            # hate_val = result2.loc[8, "percentage"]
+            # happiness_val = result2.loc[9, "percentage"]
+            # boredom_val = result2.loc[10, "percentage"]
+            # relief_val = result2.loc[11, "percentage"]
+            # anger_val = result2.loc[12, "percentage"]
 
-            form = SentimentForm()
+            # form = SentimentForm()
 
 
     else:
@@ -105,38 +105,38 @@ def home(request):
         positive_val = 1
         neutral_val = 1
         negative_val = 1
-        empty_val = 1
-        sadness_val = 1
-        enthusiasm_val = 1
-        neutral_val1 = 1
-        worry_val = 1
-        surprise_val = 1
-        love_val = 1
-        fun_val = 1
-        hate_val = 1
-        happiness_val = 1
-        boredom_val = 1
-        relief_val = 1
-        anger_val = 1
+        # empty_val = 1
+        # sadness_val = 1
+        # enthusiasm_val = 1
+        # neutral_val1 = 1
+        # worry_val = 1
+        # surprise_val = 1
+        # love_val = 1
+        # fun_val = 1
+        # hate_val = 1
+        # happiness_val = 1
+        # boredom_val = 1
+        # relief_val = 1
+        # anger_val = 1
     
     return render(request, 'user/home.html', {'form': form,
         'result': result,
         'positive_val': positive_val,
         'neutral_val': neutral_val,
         'negative_val': negative_val,
-        'empty_val': empty_val,
-        'sadness_val': sadness_val,
-        'enthusiasm_val': enthusiasm_val,
-        'neutral_val1': neutral_val1,
-        'worry_val': worry_val,
-        'surprise_val': surprise_val,
-        'love_val': love_val,
-        'fun_val': fun_val,
-        'hate_val': hate_val,
-        'happiness_val': happiness_val,
-        'boredom_val': boredom_val,
-        'relief_val': relief_val,
-        'anger_val': anger_val,
+        # 'empty_val': empty_val,
+        # 'sadness_val': sadness_val,
+        # 'enthusiasm_val': enthusiasm_val,
+        # 'neutral_val1': neutral_val1,
+        # 'worry_val': worry_val,
+        # 'surprise_val': surprise_val,
+        # 'love_val': love_val,
+        # 'fun_val': fun_val,
+        # 'hate_val': hate_val,
+        # 'happiness_val': happiness_val,
+        # 'boredom_val': boredom_val,
+        # 'relief_val': relief_val,
+        # 'anger_val': anger_val,
         })
 
 @login_required
