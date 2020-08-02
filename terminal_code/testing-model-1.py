@@ -38,7 +38,7 @@ script_dir = os.path.dirname(__file__)
 
 
 def getPickleResult(text):
-    rel_path = "../app/user/code/tokenizer_final5.pickle"
+    rel_path = "../app/user/code/tokenizer_final-4.pickle"
     abs_path = os.path.join(script_dir, rel_path)
 
     # print(abs_path)
@@ -47,12 +47,12 @@ def getPickleResult(text):
         tokenizer = pickle.load(handle)
 
         xx = tokenizer.texts_to_sequences([text])
-        xx = pad_sequences(xx, maxlen=224)
+        xx = pad_sequences(xx, maxlen=219)
 
         return xx
 
 def getSentimentResult(xx_text):
-    rel_path = "../app/user/code/sentiment_analysis-final.h5"
+    rel_path = "../app/user/code/sentiment_analysis-5.h5"
     abs_path = os.path.join(script_dir, rel_path)
 
     new = load_model(abs_path)
