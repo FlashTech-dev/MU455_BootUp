@@ -40,6 +40,8 @@ def getPickleResult(text):
         xx = tokenizer.texts_to_sequences([text])
         xx = pad_sequences(xx, maxlen=224)
 
+        print(xx)
+
         return xx
 
 def getSentimentResult(xx_text):
