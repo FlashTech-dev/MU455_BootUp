@@ -30,7 +30,9 @@ BootUp - Home
     </div>
     {% endif %}
 
+    <!-- First ROW -->
     <div class="row">
+        <!-- First COL -->
         <div class="col">
             <div class="mt-4" style="height: 300px; width: 100%; text-align: center;">
                 <canvas id="myChart" style="display: inline; padding: 20px;"></canvas>
@@ -61,12 +63,11 @@ BootUp - Home
                     });
                 </script>
             </div>
-        
-            
         </div>
-        <!-- <div class="col">
-            <div class="mt-4" style="height: 100%; width: 100%; text-align: center;"> -->
-                <!-- <canvas id="myChart2" style="display: inline; padding: 20px;"></canvas>
+        <!-- Second COL -->
+        <div class="col">
+            <div class="mt-4" style="height: 100%; width: 100%; text-align: center;">
+                <canvas id="myChart2" style="display: inline; padding: 20px;"></canvas>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
                 <script>
                     var ctx = document.getElementById('myChart2').getContext('2d');
@@ -124,12 +125,151 @@ BootUp - Home
                         },
                         
                     });
-                </script> -->
-            <!-- </div> -->
-            {% endif %}
-        </div>
+                </script>
+            </div>
         </div>
     </div>
+
+    <!-- Second ROW -->
+    <div class="row">
+        <div class="col">
+            <div class="mt-4" style="height: 400px; width: 100%; text-align: center;">
+                <canvas id="myChart-2" width="400" height="400"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart-2').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Negative', 'Neutral', 'Positive'],
+                            datasets: [{
+                                label: '% of Sentiment',
+                                data: [{{negative_val}}, {{neutral_val}}, {{positive_val}}],
+                                backgroundColor: [
+                                    'rgba(226, 13, 13, 0.5)',
+                                    'rgba(50, 195, 241, 0.5)',
+                                    'rgba(59, 241, 89, 0.5)',
+                                ],
+                                borderColor: [
+                                    'rgba(226, 13, 13, 1)',
+                                    'rgba(50, 195, 241, 1)',
+                                    'rgba(59, 241, 89, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+        display: false,
+        barPercentage: 1.3,
+        ticks: {
+          max: 3,
+        }
+      }, {
+        display: true,
+        ticks: {
+          autoSkip: false,
+          max: 4,
+        }
+      }],
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col">
+            <div class="mt-4" style="height: 400px; width: 100%; text-align: center;">
+                <canvas id="myChart-1" width="400" height="400"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart-1').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Empty', 'Sadness', 'Enthusiasm', 'Neutral', 'Worry', 'Surprise', 'Love', 'Fun', 'Hate', 'Happiness', 'Boredom', 'Relief', 'Anger'],
+                            datasets: [{
+                                label: '% of Emotion Sentiment',
+                                data: [{{empty_val}},
+                                        {{sadness_val}},
+                                        {{enthusiasm_val}},
+                                        {{neutral_val1}},
+                                        {{worry_val}},
+                                        {{surprise_val}},
+                                        {{love_val}},
+                                        {{fun_val}},
+                                        {{hate_val}},
+                                        {{happiness_val}},
+                                        {{boredom_val}},
+                                        {{relief_val}},
+                                        {{anger_val}}],
+                                backgroundColor: [
+                                        'rgba(0, 0, 0, 0.5)',
+                                        'rgba(0, 142, 248, 0.5)',
+                                        'rgba(245, 178, 123, 0.5)',
+                                        'rgba(237, 236, 236, 0.5)',
+                                        'rgba(216, 74, 9, 0.5)',
+                                        'rgba(1, 155, 189, 0.5)',
+                                        'rgba(213, 0, 0, 0.5)',
+                                        'rgba(255, 208, 0, 0.5)',
+                                        'rgba(120, 0, 160, 0.5)',
+                                        'rgba(9, 143, 69, 0.5)',
+                                        'rgba(128, 124, 124, 0.5)',
+                                        'rgba(133, 221, 233, 0.5)',
+                                        'rgba(245, 94, 16, 0.5)',
+                                ],
+                                borderColor: [
+                                        'rgba(0, 0, 0, 1)',
+                                        'rgba(0, 142, 248, 1)',
+                                        'rgba(245, 178, 123, 1)',
+                                        'rgba(237, 236, 236, 1)',
+                                        'rgba(216, 74, 9, 1)',
+                                        'rgba(1, 155, 189, 1)',
+                                        'rgba(213, 0, 0, 1)',
+                                        'rgba(255, 208, 0, 1)',
+                                        'rgba(120, 0, 160, 1)',
+                                        'rgba(9, 143, 69, 1)',
+                                        'rgba(128, 124, 124, 1)',
+                                        'rgba(133, 221, 233, 1)',
+                                        'rgba(245, 94, 16, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+        display: false,
+        barPercentage: 1.3,
+        ticks: {
+          max: 3,
+        }
+      }, {
+        display: true,
+        ticks: {
+          autoSkip: false,
+          max: 4,
+        }
+      }],
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endif %}
 
     
 
