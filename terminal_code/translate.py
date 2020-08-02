@@ -160,20 +160,43 @@ def removeEmojis(removePunctuation):
 #########################################################################################################################################################################
 
 def translate_text(inputString):
-    removePunctuation = removePunctuationMarks(inputString).lower()#Removes website, email-id, punctuations, expressions, underscore, Dollars, and, or,replacing multiple spaces by one, and converts into lower case
-    print('Reduced punctuatons is : ',removePunctuation)
-    emojiToWordList = emojiAnalyser(removePunctuation)
-    emoticonAverageSentimentScore = emoticonAnalyser(inputString)
-    print('The Average Emoticon Score is : ',emoticonAverageSentimentScore)
-    refinedStatement = textAnalyser(removePunctuation) +  ' '
-    if emojiToWordList !=None:
-    	for i in emojiToWordList:
-    		refinedStatement = refinedStatement + str(i) + ' '
-    if emoticonAverageSentimentScore != []:
-    	for i in emoticonAverageSentimentScore:
-    		refinedStatement = refinedStatement + str(i).upper() + ' '
-    refinedStatement = refinedStatement.strip()
-    return refinedStatement
+    # removePunctuation = removePunctuationMarks(inputString).lower()#Removes website, email-id, punctuations, expressions, underscore, Dollars, and, or,replacing multiple spaces by one, and converts into lower case
+    # print('Reduced punctuatons is : ',removePunctuation)
+    # emojiToWordList = emojiAnalyser(removePunctuation)
+    # emoticonAverageSentimentScore = emoticonAnalyser(inputString)
+    # print('The Average Emoticon Score is : ',emoticonAverageSentimentScore)
+    # refinedStatement = textAnalyser(removePunctuation) +  ' '
+    # if emojiToWordList !=None:
+    # 	for i in emojiToWordList:
+    # 		refinedStatement = refinedStatement + str(i) + ' '
+    # if emoticonAverageSentimentScore != []:
+    # 	for i in emoticonAverageSentimentScore:
+    # 		refinedStatement = refinedStatement + str(i).upper() + ' '
+    # refinedStatement = refinedStatement.strip()
+    # return refinedStatement
+
+    paraSplit = re.split(r'[.]',inputString);
+    print('the para list is : ',paraSplit)
+    paraCombine = ''
+    for i in paraSplit:
+        removePunctuation = removePunctuationMarks(i.strip()).lower()#Removes website, email-id, punctuations, expressions, underscore, Dollars, and, or,replacing multiple spaces by one, and converts into lower case
+        print('Reduced punctuatons is : ',removePunctuation)
+        emojiToWordList = emojiAnalyser(removePunctuation)
+        emoticonAverageSentimentScore = emoticonAnalyser(i.strip())
+        print('The Average Emoticon Score is : ',emoticonAverageSentimentScore)
+        refinedStatement = textAnalyser(removePunctuation) +  ' '
+        if emojiToWordList !=None:
+            for i in emojiToWordList:
+                refinedStatement = refinedStatement + str(i) + ' '
+        if emoticonAverageSentimentScore != []:
+            for i in emoticonAverageSentimentScore:
+                refinedStatement = refinedStatement + str(i).upper() + ' '
+        refinedStatement = refinedStatement.strip()
+        print('The Emot converted Refined statement is : ',refinedStatement)
+        paraCombine = paraCombine + refinedStatement + " "
+    print('The combined paragraph is : ',paraCombine.strip())
+
+    return paraCombine.strip()
 
 
 
