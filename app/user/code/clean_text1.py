@@ -5,13 +5,15 @@ import nltk
 script_dir = os.path.dirname(__file__)
 
 
-nltk.download("wordnet")
+nltk.download("wordnet", quiet=True)
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 lm = WordNetLemmatizer()
 stop = stopwords.words('english')
+stop.remove('not')
+stop.remove('no')
 
 def clean_text1(text):
     text = "".join([word.lower() for word in text if word not in string.punctuation])

@@ -27,4 +27,12 @@ class SentimentForm(forms.Form):
         label='Select a file',
         required=False
     )
-    value = forms.ChoiceField(choices=CHOICES, widget = forms.RadioSelect)
+    # value = forms.ChoiceField(choices=CHOICES, widget = forms.RadioSelect)
+
+class FileForm(forms.Form):
+    docfile = forms.FileField(
+        label='Select a File',
+    )
+
+class TextForm(forms.Form):
+    text = forms.CharField()

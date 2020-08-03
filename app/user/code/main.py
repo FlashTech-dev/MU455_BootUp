@@ -1,6 +1,9 @@
 import os
 import pickle
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # or any {'0', '1', '2'}
+import tensorflow as tf
+
 import pandas as pd
 import re
 import numpy as np
@@ -16,7 +19,7 @@ from keras.preprocessing import text, sequence
 import nltk
 import string
 
-nltk.download("wordnet")
+nltk.download("wordnet", quiet=True)
 
 from nltk.corpus import stopwords
 
@@ -26,10 +29,13 @@ stop = stopwords.words('english')
 ps = nltk.PorterStemmer()
 lm = nltk.WordNetLemmatizer()
 
+stop.remove('not')
+stop.remove('no')
+
 script_dir = os.path.dirname(__file__)
 
 def getPickleResult(text):
-    rel_path = "tokenizer_final-11.pickle"
+    rel_path = "pickle6.pickle"
     abs_path = os.path.join(script_dir, rel_path)
 
     # print(abs_path)
@@ -38,14 +44,14 @@ def getPickleResult(text):
         tokenizer = pickle.load(handle)
 
         xx = tokenizer.texts_to_sequences([text])
-        xx = pad_sequences(xx, maxlen=224)
+        xx = pad_sequences(xx, maxlen=23)
 
-        print(xx)
+        # print(xx)
 
         return xx
 
 def getSentimentResult(xx_text):
-    rel_path = "sentiment_analysis-11.h5"
+    rel_path = "glove6.h5"
     abs_path = os.path.join(script_dir, rel_path)
 
     new = load_model(abs_path)

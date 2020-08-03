@@ -33,12 +33,15 @@ stop = stopwords.words('english')
 ps = nltk.PorterStemmer()
 lm = nltk.WordNetLemmatizer()
 
+stop.remove('not')
+stop.remove('no')
+
 script_dir = os.path.dirname(__file__)
 
 
 
 def getPickleResult(text):
-    rel_path = "../app/user/code/tokenizer_final-11.pickle"
+    rel_path = "../app/user/code/pickle6.pickle"
     abs_path = os.path.join(script_dir, rel_path)
 
     # print(abs_path)
@@ -52,7 +55,7 @@ def getPickleResult(text):
         return xx
 
 def getSentimentResult(xx_text):
-    rel_path = "../app/user/code/sentiment_analysis-12.h5"
+    rel_path = "../app/user/code/glove6.h5"
     abs_path = os.path.join(script_dir, rel_path)
 
     new = load_model(abs_path)
@@ -132,9 +135,9 @@ def clean_text1(text):
 if __name__ == '__main__':
     text = input('Enter the string to be analysed : ')
 
-    translated_text = translate_text(text)  # Result from Translate.py
+    # translated_text = translate_text(text)  # Result from Translate.py
 
-    result_text = clean_text1(translated_text)  # Result from clean_text1.py
+    result_text = clean_text1(text)  # Result from clean_text1.py
     pickle_text = getPickleResult(result_text)  # Result from pickle file
     result_arr = getSentimentResult(pickle_text)    # Result from h5 file
 

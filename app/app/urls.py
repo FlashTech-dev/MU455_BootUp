@@ -26,7 +26,9 @@ urlpatterns = [
     path('faq/', user_views.faq, name='faq'),
 
     # @login_required
-    path('', user_views.home, name='home'),
+    # path('', user_views.home, name='home'),
+    path('file/', user_views.home_file, name='home-file'),
+    path('text/', user_views.home_text, name='home-text'),
     path('profile/', user_views.profile, name='profile'),
     path('history/', user_views.history, name='history'),
 

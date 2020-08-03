@@ -7,13 +7,27 @@ BootUp - Home
 {% endblock %}
 
 {% block content %}
-<p class="lead text-center">“Sentiment without action is the ruin of the soul.”</p>
+{% with url_name=request.resolver_match.url_name %}
+<div class="text-center">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link {% if url_name == 'home-file' %}active{% endif %}" href="{% url 'home-file' %}">File</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if url_name == 'home-text' %}active{% endif %}" href="{% url 'home-text' %}">Text</a>
+        </li>
+    </ul>
+</div>
+{% endwith %}
 <div class="text-center">
     <form method="POST" class="mt-4" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
         <input type="submit" class="btn btn-primary mt-2" value="Calculate Sentiment"><br>
     </form>
+    {% if output_url %}
+        <a href="{{output_url}}" download>Successful</a>
+    {% endif %}
     {% if result %}
     {% if result == 'Negative' %}
     <div class="alert alert-danger" role="alert">
