@@ -18,8 +18,13 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
 
-class SentimentForm(forms.ModelForm):
+CHOICES=[('Text','File'),
+         ('File','Text')]
 
-    class Meta:
-        model = Sentiment
-        fields = ['text']
+class SentimentForm(forms.Form):
+    text = forms.CharField(required=False)
+    docfile = forms.FileField(
+        label='Select a file',
+        required=False
+    )
+    value = forms.ChoiceField(choices=CHOICES, widget = forms.RadioSelect)
